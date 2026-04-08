@@ -81,68 +81,9 @@
                   <th class="px-3 md:px-4 py-2 text-left font-medium whitespace-nowrap">Hasil UJI</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-100 dark:divide-white/5">
-                <!-- data-status: lulus / tidak, data-date: yyyy-mm-dd -->
-                <tr class="hover:bg-slate-50 dark:hover:bg-white/5/50"
-                    data-status="lulus"
-                    data-date="2025-01-12">
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">PKB-2025-0012</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Dedi Hadiat</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Z 1234 AA</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Truk</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">12-01-2025</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">
-                    <span class="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] text-emerald-700 border border-emerald-200 dark:bg-emerald-400/15 dark:text-emerald-300 dark:border-emerald-400/40">
-                      Lulus UJI
-                    </span>
-                  </td>
-                </tr>
 
-                <tr class="hover:bg-slate-50 dark:hover:bg-white/5/50"
-                    data-status="tidak"
-                    data-date="2025-02-05">
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">PKB-2025-0013</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Muksin</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Z 5678 BB</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Pick Up</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">05-02-2025</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">
-                    <span class="inline-flex items-center rounded-full bg-rose-100 px-2.5 py-0.5 text-[11px] text-rose-700 border border-rose-200 dark:bg-rose-400/15 dark:text-rose-200 dark:border-rose-400/40">
-                      Tidak Lulus UJI
-                    </span>
-                  </td>
-                </tr>
-
-                <tr class="hover:bg-slate-50 dark:hover:bg-white/5/50"
-                    data-status="lulus"
-                    data-date="2024-12-20">
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">PKB-2025-0014</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Asep Nurdin</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Z 9090 CC</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Bus</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">20-12-2024</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">
-                    <span class="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] text-emerald-700 border border-emerald-200 dark:bg-emerald-400/15 dark:text-emerald-300 dark:border-emerald-400/40">
-                      Lulus UJI
-                    </span>
-                  </td>
-                </tr>
-
-                <tr class="hover:bg-slate-50 dark:hover:bg-white/5/50"
-                    data-status="tidak"
-                    data-date="2025-03-01">
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">PKB-2025-0015</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Yani S.</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Z 1122 DD</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">Truk</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">01-03-2025</td>
-                  <td class="px-3 md:px-4 py-2 whitespace-nowrap">
-                    <span class="inline-flex items-center rounded-full bg-rose-100 px-2.5 py-0.5 text-[11px] text-rose-700 border border-rose-200 dark:bg-rose-400/15 dark:text-rose-200 dark:border-rose-400/40">
-                      Tidak Lulus UJI
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
+           <tbody id="tableBody"></tbody>
+                
             </table>
           </div>
         </section>
@@ -226,18 +167,27 @@
             <input type="text" name="nama_pemilik"
                    class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
           </div>
-          <div>
-            <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">Jenis Kendaraan</label>
-            <select name="jenis_kendaraan"
-                    class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
-              <option value="">Pilih jenis...</option>
-              <option>Truk</option>
-              <option>Pick Up</option>
-              <option>Bus</option>
-              <option>Mobil Penumpang</option>
-            </select>
-          </div>
-        </div>
+     <div>
+  <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+    Kepemilikan
+  </label>
+  <select id="kategori_kendaraan"
+          class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs">
+    <option value="">Pilih kategori...</option>
+    <option value="pribadi">Pribadi</option>
+    <option value="perusahaan">Perusahaan</option>
+  </select>
+</div>
+
+<div>
+  <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+    Jenis Kendaraan
+  </label>
+  <select id="jenis_kendaraan" name="jenis_kendaraan"
+          class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs">
+    <option value="">Pilih jenis...</option>
+  </select>
+</div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
@@ -462,13 +412,84 @@ modalOverlay?.addEventListener("click", (e) => {
 });
 
 
-    pkbForm?.addEventListener("submit", (e) => {
+  $("#pkbForm").submit(function(e){
+  e.preventDefault();
+
+  $.ajax({
+    url: "<?= base_url('Sistem_controller/store') ?>",
+    type: "POST",
+    data: $(this).serialize(),
+    success: function(res){
+      let response = JSON.parse(res);
+
+      if(response.status){
+        alert("Data berhasil disimpan");
+        loadData();
+        $("#modalOverlay").addClass("hidden");
+        $("#pkbForm")[0].reset();
+      }
+    }
+  });
+});
+
+$("#pkbForm").submit(function(e){
+  e.preventDefault();
+
+  $.ajax({
+    url: "<?= base_url('Sistem_controller/store') ?>",
+    type: "POST",
+    data: $(this).serialize(),
+    success: function(res){
+      let response = JSON.parse(res);
+
+      if(response.status){
+        alert("Data berhasil disimpan");
+        loadData();
+        $("#modalOverlay").addClass("hidden");
+        $("#pkbForm")[0].reset();
+      }
+    }
+  });
+});
+
+function editData(id){
+  $.get("<?= base_url('Sistem_controller/edit/') ?>" + id, function(data){
+    let row = JSON.parse(data);
+
+    $("input[name=no_pkb]").val(row.no_pkb);
+    $("input[name=no_polisi]").val(row.no_polisi);
+    $("input[name=nama_pemilik]").val(row.nama_pemilik);
+    $("select[name=jenis_kendaraan]").val(row.jenis_kendaraan);
+    $("input[name=tanggal_uji]").val(row.tanggal_uji);
+    $("input[name=catatan]").val(row.catatan);
+
+    $("#modalOverlay").removeClass("hidden");
+
+    // ubah submit jadi update
+    $("#pkbForm").off("submit").on("submit", function(e){
       e.preventDefault();
-      // Di sini nanti ganti dengan AJAX / submit ke backend
-      alert("Data PKB tersimpan (dummy). Hasil UJI: " + hasilUjiField.value);
-      closeModal();
-      pkbForm.reset();
+
+      $.ajax({
+        url: "<?= base_url('Sistem_controller/update/') ?>" + id,
+        type: "POST",
+        data: $(this).serialize(),
+        success: function(res){
+          alert("Data berhasil diupdate");
+          loadData();
+          $("#modalOverlay").addClass("hidden");
+        }
+      });
     });
+  });
+}
+
+function deleteData(id){
+  if(confirm("Yakin hapus data?")){
+    $.get("<?= base_url('Sistem_controller/delete/') ?>" + id, function(){
+      loadData();
+    });
+  }
+}
 
     // ==== EXPORT BUTTON ====
     const btnExport = document.getElementById("btnExport");
@@ -481,5 +502,38 @@ modalOverlay?.addEventListener("click", (e) => {
       alert("Export data berdasarkan tab: " + label);
     });
   </script>
+
+  <script>
+  const dataKendaraan = {
+    pribadi: [
+      "Mobil Penumpang",
+      "Pick Up"
+    ],
+    perusahaan: [
+      "Truk",
+      "Bus",
+      "Pick Up"
+    ]
+  };
+
+  const kategori = document.getElementById("kategori_kendaraan");
+  const jenis = document.getElementById("jenis_kendaraan");
+
+  kategori.addEventListener("change", function () {
+    const selected = this.value;
+
+    // reset isi
+    jenis.innerHTML = '<option value="">Pilih jenis...</option>';
+
+    if (dataKendaraan[selected]) {
+      dataKendaraan[selected].forEach(item => {
+        const option = document.createElement("option");
+        option.value = item;
+        option.textContent = item;
+        jenis.appendChild(option);
+      });
+    }
+  });
+</script>
 </body>
 </html>

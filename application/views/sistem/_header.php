@@ -18,6 +18,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
     }
   </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="min-h-screen bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
@@ -49,7 +50,7 @@
           <span class="text-base">🏠</span>
           <span>Dashboard</span>
         </a>
-        <a href="./kir-pkb/Sistem_controller/arsip"
+        <a href="/kir-pkb/Sistem_controller/arsip"
            class="flex items-center gap-2 rounded-xl px-3 py-2 bg-slate-900/5 text-slate-900 border border-slate-300/80 dark:bg-white/10 dark:text-slate-50 dark:border-white/10">
           <span class="text-base">📂</span>
           <span>Data Arsip PKB</span>
@@ -116,3 +117,33 @@
           </div>
         </div>
       </header>
+<script>
+  const currentUrl = window.location.href;
+
+  document.querySelectorAll('#sidebarMenu a').forEach(link => {
+    if (currentUrl.includes(link.getAttribute('href'))) {
+      
+      // hapus active semua dulu
+      document.querySelectorAll('#sidebarMenu a').forEach(l => {
+        l.classList.remove(
+          'bg-slate-900/5',
+          'text-slate-900',
+          'border-slate-300/80',
+          'dark:bg-white/10',
+          'dark:text-slate-50',
+          'dark:border-white/10'
+        );
+      });
+
+      // tambah active ke yang cocok
+      link.classList.add(
+        'bg-slate-900/5',
+        'text-slate-900',
+        'border-slate-300/80',
+        'dark:bg-white/10',
+        'dark:text-slate-50',
+        'dark:border-white/10'
+      );
+    }
+  });
+</script>
