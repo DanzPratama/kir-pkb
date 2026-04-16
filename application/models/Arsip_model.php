@@ -1,10 +1,10 @@
 <?php
 class Arsip_model extends CI_Model {
 
-    public function getAll() {
-        return $this->db->get('arsip_pkb')->result();
-    }
-
+public function getAll() {
+    $this->db->order_by('tgl_uji_kir', 'DESC');
+    return $this->db->get('arsip_pkb')->result();
+}
     public function insert($data) {
         return $this->db->insert('arsip_pkb', $data);
     }

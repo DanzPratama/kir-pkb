@@ -5,7 +5,7 @@
         <div class="flex flex-col gap-4">
           <!-- Tabs -->
           <div class="flex flex-wrap items-center justify-between gap-3">
-            <div class="inline-flex rounded-2xl bg-slate-200/70 p-1 text-xs text-slate-600 shadow-sm dark:bg-white/10 dark:text-slate-200">
+            <!-- <div class="inline-flex rounded-2xl bg-slate-200/70 p-1 text-xs text-slate-600 shadow-sm dark:bg-white/10 dark:text-slate-200">
               <button id="tabAll"
                       class="px-3 py-1.5 rounded-2xl font-medium bg-white shadow-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
                 Semua
@@ -18,7 +18,7 @@
                       class="px-3 py-1.5 rounded-2xl font-medium border-transparent">
                 Tidak Lulus UJI
               </button>
-            </div>
+            </div> -->
 
             <div class="flex flex-wrap items-center gap-2 text-xs">
               <!-- Filter tanggal uji -->
@@ -64,66 +64,41 @@
             <div>
               <p class="text-sm font-medium text-slate-900 dark:text-slate-50">Data Kendaraan</p>
               <p class="text-[11px] text-slate-500 mt-0.5 dark:text-slate-300">
-                Daftar kendaraan berdasarkan hasil UJI PKB.
+                Daftar kendaraan berdasarkan hasil UJI loadda.
               </p>
             </div>
           </div>
 
-          <div class="overflow-x-auto">
-            <table id="tablePKB" class="min-w-full text-xs md:text-sm transition-opacity duration-300">
-              <thead class="bg-slate-100/90 border-b border-slate-200 text-slate-700 dark:bg-white/5 dark:border-white/10 dark:text-slate-200">
-                <tr>
-                  <th class="px-3 md:px-4 py-2 text-left font-medium whitespace-nowrap">No. PKB</th>
-                  <th class="px-3 md:px-4 py-2 text-left font-medium whitespace-nowrap">Nama Pemilik</th>
-                  <th class="px-3 md:px-4 py-2 text-left font-medium whitespace-nowrap">No. Polisi</th>
-                  <th class="px-3 md:px-4 py-2 text-left font-medium whitespace-nowrap">Jenis Kendaraan</th>
-                  <th class="px-3 md:px-4 py-2 text-left font-medium whitespace-nowrap">Tanggal UJI</th>
-                  <th class="px-3 md:px-4 py-2 text-left font-medium whitespace-nowrap">Hasil UJI</th>
-                </tr>
-              </thead>
+         <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/10">
+  <table id="table" class="min-w-full text-xs md:text-sm text-left">
+    
+    <!-- HEADER -->
+    <thead class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white text-xs uppercase tracking-wide">
+      <tr>
+        <th class="px-4 py-3">No Uji</th>
+        <th class="px-4 py-3">Pemilik</th>
+        <th class="px-4 py-3">No Kendaraan</th>
+        <th class="px-4 py-3">Merk</th>
+        <th class="px-4 py-3">Jenis</th>
+        <th class="px-4 py-3">Tgl Uji</th>
+        <th class="px-4 py-3">Selanjutnya</th>
+        <th class="px-4 py-3 text-center">Aksi</th>
+      </tr>
+    </thead>
 
-           <tbody id="tableBody"></tbody>
-                
-            </table>
-          </div>
+    <!-- BODY -->
+    <tbody id="tableBody" class="divide-y divide-slate-200 dark:divide-white/10 bg-white dark:bg-slate-900">
+      <!-- isi dari JS -->
+    </tbody>
+
+  </table>
+</div>
         </section>
       </main>
     </div>
   </div>
 
-  <!-- Modal PILIHAN: Lulus / Tidak -->
-<div id="choiceOverlay"
-     class="hidden fixed inset-0 z-40 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-  <div class="w-full max-w-xs mx-4 rounded-3xl border border-slate-200 bg-white/95 shadow-2xl shadow-slate-900/20 dark:border-white/15 dark:bg-slate-900">
-    <div class="flex items-center justify-between px-4 pt-3 pb-2 border-b border-slate-200 dark:border-slate-700">
-      <p class="text-sm font-semibold text-slate-900 dark:text-slate-50">
-        Pilih Jenis Input
-      </p>
-      <button id="choiceClose"
-              class="h-7 w-7 rounded-2xl border border-slate-200 bg-white text-[11px] text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
-        ✕
-      </button>
-    </div>
 
-    <div class="px-4 pt-3 pb-4 space-y-2 text-xs">
-      <p class="text-[11px] text-slate-600 dark:text-slate-300 mb-1">
-        Data yang akan diinputkan untuk kendaraan:
-      </p>
-      <button id="choiceLulus"
-              class="w-full rounded-2xl border border-emerald-300 bg-emerald-50 px-3 py-2 text-left text-[11px] text-emerald-700 hover:bg-emerald-100 dark:border-emerald-400/70 dark:bg-emerald-900/40 dark:text-emerald-100 dark:hover:bg-emerald-900/70">
-        ✅ Input kendaraan <b>Lulus UJI</b>
-      </button>
-      <button id="choiceTidak"
-              class="w-full rounded-2xl border border-rose-300 bg-rose-50 px-3 py-2 text-left text-[11px] text-rose-700 hover:bg-rose-100 dark:border-rose-400/70 dark:bg-rose-900/40 dark:text-rose-100 dark:hover:bg-rose-900/70">
-        ⚠️ Input kendaraan <b>Tidak Lulus UJI</b>
-      </button>
-      <button id="choiceCancel"
-              class="mt-1 w-full rounded-2xl border border-slate-300 bg-white px-3 py-1.5 text-[11px] text-slate-600 hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
-        Batal
-      </button>
-    </div>
-  </div>
-</div>
 
   <!-- Modal Input -->
   <div id="modalOverlay"
@@ -144,80 +119,139 @@
         </button>
       </div>
 
-      <form id="pkbForm" class="px-5 pt-4 pb-5 space-y-3 text-xs">
-        <!-- status hidden -->
-        <input type="hidden" id="hasilUjiField" name="hasil_uji" value="LULUS" />
+   <form id="pkbForm" class="px-5 pt-4 pb-5 space-y-3 text-xs">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div>
-            <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">No. PKB</label>
-            <input type="text" name="no_pkb"
-                   class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
-          </div>
-          <div>
-            <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">No. Polisi</label>
-            <input type="text" name="no_polisi"
-                   class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
-          </div>
-        </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div>
-            <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">Nama Pemilik</label>
-            <input type="text" name="nama_pemilik"
-                   class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
-          </div>
-     <div>
-  <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
-    Kepemilikan
-  </label>
-  <select id="kategori_kendaraan"
-          class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs">
-    <option value="">Pilih kategori...</option>
-    <option value="pribadi">Pribadi</option>
-    <option value="perusahaan">Perusahaan</option>
-  </select>
-</div>
+    <!-- Kepemilikan -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Kepemilikan
+      </label>
+      <select id="kategori_kendaraan" name="kategori_kendaraan"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+        <option value="">Pilih...</option>
+        <option value="pribadi">Pribadi</option>
+        <option value="perusahaan">Perusahaan</option>
+      </select>
+    </div>
 
-<div>
-  <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
-    Jenis Kendaraan
-  </label>
-  <select id="jenis_kendaraan" name="jenis_kendaraan"
-          class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs">
-    <option value="">Pilih jenis...</option>
-  </select>
-</div>
+    <!-- Nama -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Nama Pemilik
+      </label>
+      <input type="text" name="nama_pemilik"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div>
-            <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">Tanggal UJI</label>
-            <input type="date" name="tanggal_uji"
-                   class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
-          </div>
-          <div>
-            <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">Catatan</label>
-            <input type="text" name="catatan"
-                   class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100" />
-          </div>
-        </div>
+    <!-- HP -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        No HP
+      </label>
+      <input type="text" name="no_hp"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
 
-        <div class="flex items-center justify-between pt-2">
-          <p class="text-[11px] text-slate-500 dark:text-slate-300">
-            Hasil UJI: <span id="hasilUjiLabel" class="font-semibold text-emerald-600 dark:text-emerald-300">Lulus UJI</span>
-          </p>
-          <div class="flex gap-2">
-            <button type="button" id="modalCancel"
-                    class="rounded-2xl border border-slate-300 bg-white/80 px-4 py-1.5 text-[11px] text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
-              Batal
-            </button>
-            <button type="submit"
-                    class="rounded-2xl bg-gradient-to-r from-indigo-400 via-sky-400 to-cyan-300 px-4 py-1.5 text-[11px] font-semibold text-slate-900 shadow-md shadow-sky-900/40 hover:brightness-105 active:scale-[0.98]">
-              Simpan
-            </button>
-          </div>
-        </div>
-      </form>
+    <!-- No Kendaraan -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Nomor Kendaraan
+      </label>
+      <input type="text" name="no_kendaraan"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- No Uji -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        No Uji KIR
+      </label>
+      <input type="text" name="no_uji_kir"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- Mesin -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Nomor Mesin
+      </label>
+      <input type="text" name="no_mesin"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- Rangka -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Nomor Rangka
+      </label>
+      <input type="text" name="no_rangka"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- Merk -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Merk
+      </label>
+      <input type="text" name="merek"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- Kapasitas -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Kapasitas Penumpang
+      </label>
+      <input type="number" name="kapasitas"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- Jenis -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Jenis Kendaraan
+      </label>
+      <input type="text" name="jenis_kendaraan"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- Tgl Uji -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Tanggal Uji KIR
+      </label>
+      <input type="date" name="tgl_uji_kir" id="tgl_uji_kir"
+        class="w-full rounded-2xl border border-slate-300 bg-white/90 px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100">
+    </div>
+
+    <!-- Tgl Selanjutnya -->
+    <div>
+      <label class="block mb-1 text-[11px] text-slate-600 dark:text-slate-300">
+        Tanggal Uji Selanjutnya
+      </label>
+      <input type="date" name="tgl_uji_selanjutnya" id="tgl_uji_selanjutnya"
+        readonly
+        class="w-full rounded-2xl border border-slate-300 bg-slate-100 px-3 py-1.5 text-xs text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
+    </div>
+
+  </div>
+
+  <!-- BUTTON -->
+  <div class="flex justify-end gap-2 pt-3">
+    <button type="button" id="modalCancel"
+      class="rounded-2xl border border-slate-300 bg-white/80 px-4 py-1.5 text-[11px] text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
+      Batal
+    </button>
+
+    <button type="submit"
+      class="rounded-2xl bg-gradient-to-r from-indigo-400 via-sky-400 to-cyan-300 px-4 py-1.5 text-[11px] font-semibold text-slate-900 shadow-md hover:brightness-105 active:scale-[0.98]">
+      Simpan
+    </button>
+  </div>
+
+</form>
     </div>
   </div>
 
@@ -228,7 +262,7 @@
     const iconSun = document.getElementById("iconSun");
     const iconMoon = document.getElementById("iconMoon");
 
-    function applyTheme(isDark) {
+    function applyTheme(isDark) { 
       if (isDark) {
         root.classList.add("dark");
         iconSun?.classList.add("hidden");
@@ -339,7 +373,7 @@
       applyFilters();
     });
 
-    setActiveTab("all"); // initial
+ //   setActiveTab("all"); // initial
 
    // ==== ADD BUTTON & MODAL PILIHAN ====
 const btnAdd = document.getElementById("btnAdd");
@@ -360,9 +394,8 @@ const hasilUjiLabel = document.getElementById("hasilUjiLabel");
 const pkbForm = document.getElementById("pkbForm");
 
 btnAdd?.addEventListener("click", () => {
-  choiceOverlay.classList.remove("hidden");
+  modalOverlay.classList.remove("hidden");
 });
-
 // fungsi buka modal form (ini boleh tetap seperti sebelumnya)
 function openModal(status) {
   const isLulus = status === "LULUS";
@@ -411,26 +444,51 @@ modalOverlay?.addEventListener("click", (e) => {
   if (e.target === modalOverlay) closeModal();
 });
 
+document.getElementById("tgl_uji_kir").addEventListener("change", function(){
+  let tgl = new Date(this.value);
 
-  $("#pkbForm").submit(function(e){
-  e.preventDefault();
+  if(!isNaN(tgl)){
+    tgl.setMonth(tgl.getMonth() + 6);
 
-  $.ajax({
-    url: "<?= base_url('Sistem_controller/store') ?>",
-    type: "POST",
-    data: $(this).serialize(),
-    success: function(res){
-      let response = JSON.parse(res);
+    let yyyy = tgl.getFullYear();
+    let mm = String(tgl.getMonth() + 1).padStart(2, '0');
+    let dd = String(tgl.getDate()).padStart(2, '0');
 
-      if(response.status){
-        alert("Data berhasil disimpan");
-        loadData();
-        $("#modalOverlay").addClass("hidden");
-        $("#pkbForm")[0].reset();
-      }
-    }
-  });
+    document.getElementById("tgl_uji_selanjutnya").value = `${yyyy}-${mm}-${dd}`;
+  }
 });
+
+function loadData(){
+  $.get("<?= base_url('Sistem_controller/getData') ?>", function(data){
+    let rows = JSON.parse(data);
+    let html = "";
+
+    rows.forEach(r => {
+      html += `
+        <tr>
+          <td>${r.no_uji_kir}</td>
+          <td>${r.nama_pemilik}</td>
+          <td>${r.no_kendaraan}</td>
+          <td>${r.merek}</td>
+          <td>${r.jenis_kendaraan}</td>
+          <td>${r.tgl_uji_kir}</td>
+          <td>${r.tgl_uji_selanjutnya}</td>
+          <td>
+            <button onclick="editData(${r.id})">Edit</button>
+            <button onclick="deleteData(${r.id})">Hapus</button>
+          </td>
+        </tr>
+      `;
+       
+    });
+
+    $("#tableBody").html(html);
+    loadData();
+  });
+}
+
+
+
 
 $("#pkbForm").submit(function(e){
   e.preventDefault();
@@ -454,31 +512,34 @@ $("#pkbForm").submit(function(e){
 
 function editData(id){
   $.get("<?= base_url('Sistem_controller/edit/') ?>" + id, function(data){
-    let row = JSON.parse(data);
+    let r = JSON.parse(data);
 
-    $("input[name=no_pkb]").val(row.no_pkb);
-    $("input[name=no_polisi]").val(row.no_polisi);
-    $("input[name=nama_pemilik]").val(row.nama_pemilik);
-    $("select[name=jenis_kendaraan]").val(row.jenis_kendaraan);
-    $("input[name=tanggal_uji]").val(row.tanggal_uji);
-    $("input[name=catatan]").val(row.catatan);
+    $("select[name=kategori_kendaraan]").val(r.kategori_kendaraan);
+    $("input[name=nama_pemilik]").val(r.nama_pemilik);
+    $("input[name=no_hp]").val(r.no_hp);
+    $("input[name=no_kendaraan]").val(r.no_kendaraan);
+    $("input[name=no_uji_kir]").val(r.no_uji_kir);
+    $("input[name=no_mesin]").val(r.no_mesin);
+    $("input[name=no_rangka]").val(r.no_rangka);
+    $("input[name=merek]").val(r.merek);
+    $("input[name=kapasitas]").val(r.kapasitas);
+    $("input[name=jenis_kendaraan]").val(r.jenis_kendaraan);
+    $("input[name=tgl_uji_kir]").val(r.tgl_uji_kir);
+    $("input[name=tgl_uji_selanjutnya]").val(r.tgl_uji_selanjutnya);
 
-    $("#modalOverlay").removeClass("hidden");
+    modalOverlay.classList.remove("hidden");
 
-    // ubah submit jadi update
     $("#pkbForm").off("submit").on("submit", function(e){
       e.preventDefault();
 
-      $.ajax({
-        url: "<?= base_url('Sistem_controller/update/') ?>" + id,
-        type: "POST",
-        data: $(this).serialize(),
-        success: function(res){
+      $.post("<?= base_url('Sistem_controller/update/') ?>" + id,
+        $(this).serialize(),
+        function(){
           alert("Data berhasil diupdate");
           loadData();
-          $("#modalOverlay").addClass("hidden");
+          modalOverlay.classList.add("hidden");
         }
-      });
+      );
     });
   });
 }
@@ -534,6 +595,8 @@ function deleteData(id){
       });
     }
   });
+
+   loadData();
 </script>
 </body>
 </html>

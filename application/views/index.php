@@ -1,100 +1,70 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
-
-	<style type="text/css">
-
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-		text-decoration: none;
-	}
-
-	a:hover {
-		color: #97310e;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-		min-height: 96px;
-	}
-
-	p {
-		margin: 0 0 10px;
-		padding:0;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
+    <meta charset="UTF-8">
+    <title>Arsip KIR PKB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+<!-- NAVBAR -->
+<nav class="bg-white shadow-md fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold text-indigo-600">Arsip KIR PKB</h1>
+        <div class="space-x-6 hidden md:flex">
+            <a href="#fitur" class="hover:text-indigo-600">Fitur</a>
+            <a href="#alur" class="hover:text-indigo-600">Alur</a>
+            <a href="#kontak" class="hover:text-indigo-600">Kontak</a>
+        </div>
+        <button onclick="openLogin()" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Login</button>
+    </div>
+</nav>
 
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="userguide3/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-xl w-80">
+        <h2 class="text-xl font-bold mb-4 text-center">Login Admin</h2>
+        <input id="username" type="text" placeholder="Username" class="w-full mb-3 px-3 py-2 border rounded">
+        <input id="password" type="password" placeholder="Password" class="w-full mb-3 px-3 py-2 border rounded">
+        <button onclick="login()" class="w-full bg-indigo-600 text-white py-2 rounded">Login</button>
+        <p id="error" class="text-red-500 text-sm mt-2 hidden">Login gagal</p>
+    </div>
 </div>
+
+<!-- HERO -->
+<section class="pt-32 pb-20 bg-gradient-to-r from-indigo-600 to-blue-500 text-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+            <h2 class="text-4xl font-bold mb-4">DataKIR PKB</h2>
+            <p class="mb-6">Kelola data uji kendaraan dengan cepat, aman, dan terstruktur tanpa ribet.</p>
+            <button class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold">
+                Mulai Sekarang
+            </button>
+        </div>
+        <div>
+            <img src="https://illustrations.popsy.co/gray/work-from-home.svg" alt="">
+        </div>
+    </div>
+</section>
+
+<script>
+function openLogin(){
+    document.getElementById('loginModal').classList.remove('hidden');
+    document.getElementById('loginModal').classList.add('flex');
+}
+
+function login(){
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    if(user === 'adminpkb' && pass === 'pkb123'){
+        alert('Login berhasil!');
+        window.location.href = '/kir-pkb/Sistem_controller'; // bebas arahkan
+    }else{
+        document.getElementById('error').classList.remove('hidden');
+    }
+}
+</script>
 
 </body>
 </html>

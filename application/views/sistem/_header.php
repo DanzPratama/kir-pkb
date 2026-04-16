@@ -34,32 +34,74 @@
     <aside id="sidebarMenu" class="hidden md:flex md:flex-col w-64 border-r border-slate-200/80 bg-white/70 backdrop-blur-2xl shadow-xl shadow-slate-900/10 dark:border-white/10 dark:bg-white/5 dark:shadow-[0_18px_60px_rgba(0,0,0,0.65)]">
       <div class="px-5 pt-5 pb-3 border-b border-slate-200/80 dark:border-white/10">
         <div class="inline-flex items-center gap-3">
-          <div class="h-10 w-10 rounded-2xl bg-slate-900/5 border border-slate-300/80 flex items-center justify-center dark:bg-slate-900/70 dark:border-white/10">
-            <span class="text-sm font-semibold tracking-tight">PK</span>
-          </div>
+         <div class="h-12 w-12 rounded-2xl overflow-hidden shadow-lg 
+            hover:scale-110 transition duration-300">
+
+  <img src="assets/kir.webp" 
+       alt="Logo PKB"
+       class="w-full h-full object-cover">
+
+</div>
           <div>
-            <p class="text-sm font-semibold leading-tight">Arsip PKB</p>
+            <p class="text-sm font-semibold leading-tight">DataKIR</p>
             <p class="text-[11px] text-slate-500/90 dark:text-slate-300/80">Sistem Arsip Ringan</p>
           </div>
         </div>
       </div>
 
       <nav class="flex-1 px-3 pt-4 space-y-1 text-sm">
-        <a href="/kir-pkb/Sistem_controller"
-           class="flex items-center gap-2 rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-900/5 hover:border-slate-300/80 border border-transparent transition dark:text-slate-200/85 dark:hover:bg-white/5 dark:hover:border-white/10">
-          <span class="text-base">🏠</span>
-          <span>Dashboard</span>
+       <!-- MENU -->
+<div class="flex flex-col gap-2">
+
+  <!-- BARANG -->
+  <a href="/kir-pkb/Sistem_controller"
+    class="group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium 
+    bg-gradient-to-r from-indigo-50 to-sky-50 
+    text-slate-800 border border-slate-200 
+    hover:shadow-md hover:scale-[1.02] transition
+    dark:from-slate-800 dark:to-slate-900 dark:text-white dark:border-white/10">
+
+    <span class="text-lg group-hover:scale-110 transition">🚚</span>
+    <span>Dashboard </span>
+
+  </a>
+  <a href="/kir-pkb/Sistem_controller/barang"
+    class="group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium 
+    bg-gradient-to-r from-indigo-50 to-sky-50 
+    text-slate-800 border border-slate-200 
+    hover:shadow-md hover:scale-[1.02] transition
+    dark:from-slate-800 dark:to-slate-900 dark:text-white dark:border-white/10">
+
+    <span class="text-lg group-hover:scale-110 transition">🚚</span>
+    <span>Data Angkutan Barang</span>
+
+  </a>
+
+  <!-- UMUM -->
+  <a href="/kir-pkb/Sistem_controller/umum"
+    class="group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium 
+    bg-gradient-to-r from-emerald-50 to-teal-50 
+    text-slate-800 border border-slate-200 
+    hover:shadow-md hover:scale-[1.02] transition
+    dark:from-slate-800 dark:to-slate-900 dark:text-white dark:border-white/10">
+
+    <span class="text-lg group-hover:scale-110 transition">🚌</span>
+    <span>Data Angkutan Umum</span>
+
+  </a>
+
+</div>
         </a>
-        <a href="/kir-pkb/Sistem_controller/arsip"
+        <!-- <a href="/kir-pkb/Sistem_controller/arsip"
            class="flex items-center gap-2 rounded-xl px-3 py-2 bg-slate-900/5 text-slate-900 border border-slate-300/80 dark:bg-white/10 dark:text-slate-50 dark:border-white/10">
           <span class="text-base">📂</span>
-          <span>Data Arsip PKB</span>
+          <span>Manajemen Data PKB</span>
         </a>
         <a href="pengaturan.html"
            class="flex items-center gap-2 rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-900/5 hover:border-slate-300/80 border border-transparent transition dark:text-slate-200/85 dark:hover:bg-white/5 dark:hover:border-white/10">
           <span class="text-base">⚙️</span>
           <span>Pengaturan</span>
-        </a>
+        </a> -->
           <!-- LOGOUT BUTTON -->
   <a href="index.html"
      class="flex items-center gap-2 mt-4 rounded-xl px-3 py-2 text-slate-700 border border-slate-300/70 bg-red-500/10 hover:bg-red-500/20 text-red-600 transition dark:text-red-300 dark:border-red-500/40 dark:bg-red-500/10 dark:hover:bg-red-500/20">
@@ -90,7 +132,7 @@
 
         <div class="hidden md:block">
           <h1 class="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-50">
-            Data Arsip PKB
+            DataKIR
           </h1>
           <p class="text-xs text-slate-500 mt-0.5 dark:text-slate-300">
             Kelola dan filter data kendaraan berdasarkan hasil UJI PKB.
@@ -117,6 +159,7 @@
           </div>
         </div>
       </header>
+
 <script>
   const currentUrl = window.location.href;
 
